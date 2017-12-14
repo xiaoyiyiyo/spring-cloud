@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * Created by xiaoyiyiyo on 2017/12/14.
  */
 @Service
-@FeignClient(value = "client-one")
+@FeignClient(value = "client-one", fallback = FeignOneFailService.class)
 public interface IFeignOneService {
 
     @RequestMapping("/test")
