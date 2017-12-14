@@ -1,6 +1,7 @@
 package com.xiaoyiyiyo.controller;
 
-import org.springframework.beans.factory.annotation.Value;
+import com.xiaoyiyiyo.service.OneService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -10,11 +11,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class OneController {
 
-    @Value("${server.port}")
-    String port;
+    @Autowired
+    private OneService oneService;
 
     @RequestMapping("/test")
     public String one() {
-        return "Hello cloud!" + port;
+        return oneService.one();
     }
 }
